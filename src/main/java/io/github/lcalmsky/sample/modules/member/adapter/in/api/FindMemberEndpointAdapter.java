@@ -14,9 +14,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FindMemberEndpointAdapter implements FindMemberEndpointPort {
 
-  private FindAllMembersUseCase findAllMembersUseCase;
-  private FindMemberUseCase findMemberUseCase;
-  private MemberMapper memberMapper;
+  private final FindAllMembersUseCase findAllMembersUseCase;
+  private final FindMemberUseCase findMemberUseCase;
+  private final MemberMapper memberMapper;
 
   @Override
   public List<ReadMemberDto> findAll() {

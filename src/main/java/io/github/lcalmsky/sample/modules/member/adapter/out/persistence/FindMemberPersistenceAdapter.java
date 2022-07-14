@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FindMemberPersistenceAdapter implements FindMemberPersistencePort {
 
-  private MemberRepository memberRepository;
+  private final MemberRepository memberRepository;
 
   @Override
   public List<Member> findAll() {
