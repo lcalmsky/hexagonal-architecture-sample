@@ -1,12 +1,13 @@
 package io.github.lcalmsky.sample.modules.member.application.port.out.persistance;
 
+
 import io.github.lcalmsky.sample.modules.member.domain.entity.Member;
+import java.util.List;
 
-public interface ChangeMemberPersistencePort {
+public interface MemberQueryPort {
 
-  void create(Member member);
+  List<Member> findAll();
 
-  void update(Member member);
+  Member findById(Long id);
 
-  void deleteById(Long id);
 }

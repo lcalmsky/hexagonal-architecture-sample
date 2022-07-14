@@ -1,14 +1,14 @@
 package io.github.lcalmsky.sample.modules.member.adapter.out.persistence;
 
 import io.github.lcalmsky.sample.infrastructure.annotation.QueryPersistenceAdapter;
-import io.github.lcalmsky.sample.modules.member.application.port.out.persistance.FindMemberPersistencePort;
+import io.github.lcalmsky.sample.modules.member.application.port.out.persistance.MemberQueryPort;
 import io.github.lcalmsky.sample.modules.member.domain.entity.Member;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
 @QueryPersistenceAdapter
 @RequiredArgsConstructor
-public class MemberQueryAdapter implements FindMemberPersistencePort {
+public class MemberQueryAdapter implements MemberQueryPort {
 
   private final MemberRepository memberRepository;
 
