@@ -1,14 +1,14 @@
 package io.github.lcalmsky.sample.modules.member.adapter.out.persistence;
 
-import io.github.lcalmsky.sample.infrastructure.annotation.Adapter;
+import io.github.lcalmsky.sample.infrastructure.annotation.QueryPersistenceAdapter;
 import io.github.lcalmsky.sample.modules.member.application.port.out.persistance.FindMemberPersistencePort;
 import io.github.lcalmsky.sample.modules.member.domain.entity.Member;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
-@Adapter
+@QueryPersistenceAdapter
 @RequiredArgsConstructor
-public class FindMemberPersistenceAdapter implements FindMemberPersistencePort {
+public class MemberQueryAdapter implements FindMemberPersistencePort {
 
   private final MemberRepository memberRepository;
 
@@ -20,18 +20,6 @@ public class FindMemberPersistenceAdapter implements FindMemberPersistencePort {
   @Override
   public Member findById(Long id) {
     return memberRepository.findById(id)
-        .orElseThrow(IllegalArgumentException::new);
-  }
-
-  @Override
-  public Member findByName(String name) {
-    return memberRepository.findByName(name)
-        .orElseThrow(IllegalArgumentException::new);
-  }
-
-  @Override
-  public Member findByEmail(String email) {
-    return memberRepository.findByEmail(email)
         .orElseThrow(IllegalArgumentException::new);
   }
 }

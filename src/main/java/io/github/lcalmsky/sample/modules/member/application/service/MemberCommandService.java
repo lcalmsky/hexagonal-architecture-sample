@@ -1,26 +1,27 @@
 package io.github.lcalmsky.sample.modules.member.application.service;
 
-import io.github.lcalmsky.sample.modules.member.adapter.in.api.model.dto.MemberDto.UpdateMemberDto;
+import io.github.lcalmsky.sample.modules.member.application.port.in.api.MemberCommandUsecase;
+import io.github.lcalmsky.sample.modules.member.application.port.in.api.model.dto.MemberDto.CreateMemberDto;
+import io.github.lcalmsky.sample.modules.member.application.port.in.api.model.dto.MemberDto.UpdateMemberDto;
+import io.github.lcalmsky.sample.modules.member.application.port.in.api.model.mapper.MemberMapper;
 import io.github.lcalmsky.sample.modules.member.application.port.out.persistance.ChangeMemberPersistencePort;
 import io.github.lcalmsky.sample.modules.member.application.port.out.persistance.FindMemberPersistencePort;
-import io.github.lcalmsky.sample.modules.member.application.usecase.CreateMemberUsecase;
-import io.github.lcalmsky.sample.modules.member.application.usecase.DeleteMemberUsecase;
-import io.github.lcalmsky.sample.modules.member.application.usecase.UpdateMemberUsecase;
 import io.github.lcalmsky.sample.modules.member.domain.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ChangeMemberService implements CreateMemberUsecase, UpdateMemberUsecase,
+public class MemberCommandService implements MemberCommandUsecase, UpdateMemberUsecase,
     DeleteMemberUsecase {
 
   private final ChangeMemberPersistencePort changeMemberPersistencePort;
   private final FindMemberPersistencePort findMemberPersistencePort;
+  private final MemberMapper memberMapper;
 
   @Override
-  public void create(Member member) {
-    changeMemberPersistencePort.create(member);
+  public void create(CreateMemberDto member) {
+    changeMemberPersistencePort.create(memberMapper.toEntity(member));
   }
 
   @Override

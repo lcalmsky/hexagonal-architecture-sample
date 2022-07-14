@@ -6,14 +6,15 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Component
-public @interface Mapper {
+@RestController
+public @interface ApiAdapter {
 
-  @AliasFor(annotation = Component.class)
+  @AliasFor(annotation = Controller.class)
   String value() default "";
 }

@@ -1,4 +1,4 @@
-package io.github.lcalmsky.sample.modules.member.adapter.in.api.model.dto;
+package io.github.lcalmsky.sample.modules.member.application.port.in.api.model.dto;
 
 public class MemberDto {
 
