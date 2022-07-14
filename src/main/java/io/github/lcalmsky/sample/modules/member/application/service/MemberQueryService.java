@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MemberQueryService implements MemberQueryUseCase, FindMemberUseCase {
+public class MemberQueryService implements MemberQueryUseCase {
 
   private final MemberQueryPort memberQueryPort;
 
