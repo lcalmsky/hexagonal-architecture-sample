@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class MemberCommandService implements MemberCommandUsecase {
+class MemberCommandService implements MemberCommandUsecase {
 
   private final MemberCommandPort memberCommandPort;
   private final MemberQueryPort memberQueryPort;

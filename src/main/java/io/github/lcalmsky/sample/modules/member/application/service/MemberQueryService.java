@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MemberQueryService implements MemberQueryUseCase {
+class MemberQueryService implements MemberQueryUseCase {
 
   private final MemberQueryPort memberQueryPort;
 
@@ -22,6 +22,7 @@ public class MemberQueryService implements MemberQueryUseCase {
 
   @Override
   public Member findById(Long id) {
-    return memberQueryPort.findById(id);
+    return memberQueryPort.findById(id)
+        .orElseThrow(IllegalAccessError::new);
   }
 }

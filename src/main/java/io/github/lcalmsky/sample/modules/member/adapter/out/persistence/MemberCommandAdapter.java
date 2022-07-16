@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 @CommandPersistenceAdapter
 @RequiredArgsConstructor
-public class MemberCommandAdapter implements MemberCommandPort {
+class MemberCommandAdapter implements MemberCommandPort {
 
   private final MemberRepository memberRepository;
 

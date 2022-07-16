@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 @QueryPersistenceAdapter
 @RequiredArgsConstructor
-public class MemberQueryAdapter implements MemberQueryPort {
+class MemberQueryAdapter implements MemberQueryPort {
 
   private final MemberRepository memberRepository;
 
