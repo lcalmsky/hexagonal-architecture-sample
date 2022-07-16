@@ -25,7 +25,8 @@ public class MemberCommandService implements MemberCommandUsecase {
 
   @Override
   public void update(UpdateMemberDto updateMemberDto) {
-    Member member = memberQueryPort.findById(updateMemberDto.id());
+    Member member = memberQueryPort.findById(updateMemberDto.id())
+        .orElseThrow(IllegalArgumentException::new);
     member.rename(updateMemberDto.name());
     member.modifyEmail(updateMemberDto.email());
     memberCommandPort.update(member);

@@ -11,6 +11,6 @@ public class MemberMapper {
   }
 
   public Member toEntity(CreateMemberDto createMemberDto) {
-    return Member.withNameAndEmail(createMemberDto.name(), createMemberDto.email());
+    return Member.of(createMemberDto.name(), createMemberDto.email());
   }
 }

@@ -27,7 +27,7 @@ public class Member {
     this.email = email;
   }
 
-  public static Member withNameAndEmail(String name, String email) {
+  public static Member of(String name, String email) {
     return new Member(name, email);
   }
 

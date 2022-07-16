@@ -4,6 +4,7 @@ import io.github.lcalmsky.sample.infrastructure.annotation.QueryPersistenceAdapt
 import io.github.lcalmsky.sample.modules.member.application.port.out.persistance.MemberQueryPort;
 import io.github.lcalmsky.sample.modules.member.domain.entity.Member;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 
 @QueryPersistenceAdapter
@@ -18,8 +19,7 @@ public class MemberQueryAdapter implements MemberQueryPort {
   }
 
   @Override
-  public Member findById(Long id) {
-    return memberRepository.findById(id)
-        .orElseThrow(IllegalArgumentException::new);
+  public Optional<Member> findById(Long id) {
+    return memberRepository.findById(id);
   }
 }
